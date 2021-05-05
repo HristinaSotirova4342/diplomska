@@ -1,0 +1,235 @@
+﻿@model Focus5.Models.Project
+
+@{
+    ViewBag.Title = "Create";
+}
+<style>
+    body {
+        font-family: "Robot", sans-serif;
+    }
+
+    .table {
+        color: #35115c;
+        width: 735px;
+        height: 430px;
+        font-family: "Robot", sans-serif;
+    }
+
+    .todo {
+        position: relative;
+        display: block;
+        padding: .75em 1em;
+        cursor: pointer;
+        background-color: #fff;
+    }
+
+    .grupa {
+        max-width: 650px;
+        margin: 3rem auto;
+        border: 2px solid #7d6094;
+        padding: 2rem;
+        width: 200%;
+    }
+
+    .form-control2 {
+        height: 75px;
+        width: 724px;
+        margin-top: 10px;
+        margin-bottom: 18px;
+    }
+
+    .form-control {
+        height: 25px;
+        width: 440px;
+        margin-top: 10px;
+        margin-bottom: 18px;
+    }
+
+    .form-control1 {
+        height: 25px;
+        width: 724px;
+        margin-top: 10px;
+        margin-bottom: 18px;
+    }
+
+    .datepicker {
+        height: 25px;
+        width: 350px;
+        margin-top: 10px;
+        margin-bottom: 18px;
+    }
+    /*.form-control1 {
+            height: 25px;
+            width: 440px;
+            margin-top: 10px;
+        }*/
+    .btnsave {
+        text-transform: uppercase;
+        margin-top: 30px;
+        display: inline-block;
+        width: 95px;
+        height: 40px;
+        padding: 10px;
+        text-decoration: none;
+        background: #633b82;
+        border-radius: 2px;
+        font-size: 18px;
+        border-radius: 6em;
+        text-align: center;
+        font-weight: 500;
+        color: #fff;
+        transition-property: background;
+    }
+
+        .btnsave:hover {
+            background: #834cad;
+        }
+
+
+
+    .form-control3 {
+        height: 30px;
+        width: 253px;
+        margin-top: 10px;
+        margin-bottom: 18px;
+    }
+
+    .btnexit {
+        text-transform: uppercase;
+        margin-top: 30px;
+        display: inline-block;
+        width: 55px;
+        height: 19px;
+        padding: 10px;
+        text-decoration: none;
+        background: #633b82;
+        border-radius: 2px;
+        font-size: 18px;
+        border-radius: 6em;
+        text-align: center;
+        font-weight: 500;
+        color: #fff;
+        transition-property: background;
+    }
+
+        .btnexit:hover {
+            background: #834cad;
+        }
+
+
+    .footertodo {
+        margin: 0;
+        padding: .7em 0;
+        border-bottom-left-radius: 1em;
+        border-bottom-right-radius: 1em;
+        background-color: #fff;
+    }
+
+    .todo-list {
+        color: #fff;
+        margin: 0;
+        padding: 1em 0;
+        color: #35115c;
+        text-align: center;
+        background-color: #fff;
+        border-top: 1em solid #35115c;
+        border-top-left-radius: 1em;
+        border-top-right-radius: 1em;
+    }
+
+    .form-control5 {
+        height: 25px;
+        width: 349px;
+        margin-top: 10px;
+    }
+</style>
+
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script>
+        $(function () {
+            $(".datepicker").datepicker({
+                dateFormat: "mm-dd-yyyy",
+                changeMonth: true,
+                changeYear: true,
+            });
+        });
+    </script>
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <section class="todo-list">
+        <h1 style="font-size:26px">Edit Project</h1><img width="100" src="~/images/375px-Open_book_nae_02.svg.png" />
+    </section>
+ 
+    <div class="todo">
+        <div class="table">
+
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="grupatekst">
+                <lable class="ll">Title</lable>
+                <div class="grupa-tekst1">
+
+                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control1" } })
+
+                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="grupatekst">
+                <label>State</label>
+                @*@Html.LabelFor(model => model.State, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <div class="grupa-tekst1">
+                    @Html.EditorFor(model => model.State, new { htmlAttributes = new { @class = "form-control5" } })
+                    @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            &nbsp &nbsp
+            <div class="grupatekst">
+                <label>Start Date</label> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<label>Due Date</label>
+                <div class="grupa-tekst1">
+                    @*@Html.TextBox("", String.Format("{0:d}", model => model.StartDate, new { @class = "datefield", type = "date" })*@
+                    @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "datepicker" } })
+                    @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+                    &nbsp &nbsp
+                    @Html.EditorFor(model => model.DueDate, new { htmlAttributes = new { @class = "datepicker" } })
+                    @Html.ValidationMessageFor(model => model.DueDate, "", new { @class = "text-danger" })
+                </div>
+
+            </div>
+
+
+
+            <div class="grupatekst">
+                <label>Description</label>
+                <div class="grupa-tekst1">
+
+                    @Html.EditorFor(model => model.ProjectDescription, new { htmlAttributes = new { @class = "form-control2", rows = "90" } })
+                    @Html.ValidationMessageFor(model => model.ProjectDescription, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+
+            <input type="submit" value="Save" class="btnsave" style="background-color:#834cad" />
+
+
+            <a href="https://localhost:44342/Projects" class="btnexit">exit</a>
+        </div>
+    </div>
+    <section class="footertodo">
+        <footer>
+        </footer>
+    </section>
+}
+
+@*<div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@

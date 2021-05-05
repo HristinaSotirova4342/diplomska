@@ -1,0 +1,332 @@
+﻿
+@{
+    ViewBag.Title = "Indexx";
+}
+
+
+<style>
+    body {
+        font-family: "Robot", sans-serif;
+    }
+
+
+
+    .wrapper {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 950px;
+        height: 650px;
+        display: flex;
+    }
+
+        .wrapper .left {
+            width: 50%;
+            background-color: white;
+            border-top-left-radius: 45px;
+            border-bottom-left-radius: 45px;
+            /*color: white;*/
+            /*background: rgb(62,62,62);*/
+            /*background: linear-gradient(95deg, rgba(62,62,62,1) 2%, rgba(238,238,238,1) 25%, rgba(255,255,255,1) 29%);*/
+        }
+
+            .wrapper .left::before {
+                content: '';
+                width: 2px;
+                height: 100%;
+                background-color: rgba(255,0,0,0.6);
+            }
+
+        .wrapper .left {
+            position: relative;
+        }
+
+            .wrapper .left::before {
+                position: absolute;
+                top: 0;
+                right: 40px;
+            }
+
+        .wrapper .left {
+            height: 100%;
+            background-image: repeating-linear-gradient(white 0px, white 24px, teal 25px);
+        }
+
+            .wrapper .left .content {
+                padding-top: 6px;
+                padding-left: 56px;
+                padding-right: 16px;
+                line-height: 25px;
+                font-family: 'Dancing Script', cursive;
+                font-size: 19px;
+                letter-spacing: 1px;
+                word-spacing: 5px;
+            }
+
+
+        .wrapper .right .info {
+            padding-top: 6px;
+            padding-left: 56px;
+            padding-right: 16px;
+            line-height: 25px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 19px;
+            letter-spacing: 1px;
+            word-spacing: 5px;
+        }
+
+        .wrapper .right {
+            width: 50%;
+            background-color: white;
+            border-top-right-radius: 45px;
+            border-bottom-right-radius: 45px;
+        }
+
+            .wrapper .right::before {
+                content: '';
+                width: 2px;
+                height: 100%;
+                background-color: rgba(255,0,0,0.6);
+            }
+
+        .wrapper .right {
+            position: relative;
+        }
+
+            .wrapper .right::before {
+                position: absolute;
+                top: 0;
+                left: 40px;
+            }
+
+
+
+
+        .wrapper .right {
+            height: 100%;
+            background-image: repeating-linear-gradient(white 0px, white 24px, teal 25px);
+        }
+
+    .izmegu {
+        width: 20px;
+        background: black;
+    }
+
+    .korica {
+        width: 1050px;
+        height: 675px;
+        background: black;
+        border-top-left-radius: 45px;
+        border-bottom-left-radius: 45px;
+        border-top-right-radius: 45px;
+        border-bottom-right-radius: 45px;
+    }
+
+    .spirali {
+        width: 20px;
+        height: 10px;
+        background: #525252;
+    }
+
+    .kkk {
+        background: pink;
+        width: 100px;
+        height: 100px;
+        border-top-right-radius: 25px;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+        border-top-left-radius: 25px;
+    }
+
+    .kkk2 {
+        background: purple;
+        width: 100px;
+        height: 100px;
+        margin-top: 10px;
+        border-top-right-radius: 25px;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+        border-top-left-radius: 25px;
+    }
+
+    .kkk3 {
+        background: blue;
+        width: 100px;
+        height: 100px;
+        margin-top: 10px;
+        border-top-right-radius: 25px;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+        border-top-left-radius: 25px;
+    }
+</style>
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="korica">
+        <br />
+        <br />
+        <br />
+        <div class="kkk">
+
+        </div>
+        <div class="kkk2">
+
+        </div>
+        <div class="kkk3">
+
+        </div>
+        <div class="wrapper">
+
+            <div class="left">
+                <div class="pattern">
+                    <div class="content">
+
+
+                        <img src="~/images/Screenshot (694).png" style="width:150px; margin-top:82px; margin-left:90px;"/>
+
+                        <div class="tekst">
+                            <p style="margin-left: 55px; font-size:25px;"> Hristina Sotirova</p>
+                            <p>Email. tina.sotirova99@gmail.com</p>
+                         
+                            <p style="margin-top: 25px;">Phone. +389 75 316 377</p>
+                            <p style="margin-top: 25px;">GitHub. <a href="https://github.com/HristinaSotirova4342">HristinaSotirova4342</a></p>
+                            <p  style="margin-top: 25px;">Linkedin. Hristina Sotirova</p>
+                        </div>
+                        <p style="font-size:14px; margin-top:71px;"> <a href="https://localhost:44342/Home/Index" style="font-size:25px;"><--</a> go back</p>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="izmegu">
+
+                <br />
+                <div class="spirali"></div>
+
+                <br />
+                <div class="spirali"></div>
+
+                <br />
+                <div class="spirali"></div>
+
+                <br />
+                <div class="spirali"></div>
+
+                <br />
+                <div class="spirali"></div>
+
+                <br />
+                <div class="spirali"></div>
+
+                <br />
+                <div class="spirali"></div>
+
+                <br />
+                <div class="spirali"></div>
+
+                <br />
+                <div class="spirali"></div>
+
+                <br />
+                <div class="spirali"></div>
+
+                <br />
+                <div class="spirali"></div>
+
+                <br />
+                <div class="spirali"></div>
+
+                <br />
+                <div class="spirali"></div>
+
+                <br />
+                <div class="spirali"></div>
+
+                <br />
+                <div class="spirali"></div>
+
+                <br />
+                <div class="spirali"></div>
+
+                <br />
+
+                <div class="spirali"></div>
+
+                <br />
+                <div class="spirali"></div>
+
+                <br />
+                <div class="spirali"></div>
+
+                <br />
+                <div class="spirali"></div>
+
+
+                <br />
+                <div class="spirali"></div>
+
+                <br />
+                <div class="spirali"></div>
+
+                <br />
+                <div class="spirali"></div>
+
+                <br />
+
+            </div>
+            <div class="right">
+                <div class="info">
+                    <br />
+                    <p>Brief Introduction</p>
+
+                    <p style="margin-top:30px;"> I would like to debut the brand and product that is called Focus, online digital planner. <br /> This digital planner is targeted to young college students who are current users of not only digital planners but also paper planners and would like to improve to a greater and one step ahead approach. The Focus planner features a structurally different design including, list of tasks, creation of projects, organization of future exams and chat with your friends on the website. <br /> I hope you will have fun using this website and have your inner organizer excited.<br /> <br /> Love Tina❤️ </p>
+
+                   
+                    <br />
+                    <br />
+                   
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+

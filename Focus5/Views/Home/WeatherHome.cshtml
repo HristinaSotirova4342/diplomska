@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "WeatherHome";
+}
+
+<h2>WeatherHome</h2>
+
+<p id="reply">
+
+</p>
+<button>Get Weather</button>
+<script>
+    $(document).ready(function () {
+        $("button").click(function () {
+
+            $.get("http://api.openweathermap.org/data/2.5/weather?q=London&appid={0df83017d406530a503e657ccdf34ad6}", function (response) {
+                //response
+                $("#reply").text(response);
+            });
+        });
+    });
+</script>

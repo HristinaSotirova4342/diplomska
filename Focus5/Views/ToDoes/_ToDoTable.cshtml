@@ -1,0 +1,179 @@
+﻿@model IEnumerable<Focus5.Models.ToDo>
+
+<div id="progressBarToDo">
+
+    <div class="progress">
+        <div class="progress-bar" role="progressbar"
+             style="width:@(Html.AttributeEncode(ViewBag.Percent))%"></div>
+    </div>
+
+</div>
+
+<style>
+
+    .table {
+        color: #35115c;
+        width: 530px;
+        height: 200px;
+        font-family: "Robot", sans-serif;
+        overflow: hidden;
+    }
+
+    .todo-list {
+        color: #fff;
+        margin: 0;
+        padding: 1em 0;
+        color: #35115c;
+        text-align: center;
+        background-color: #fff;
+        border-top: 1em solid #35115c;
+        border-top-left-radius: 1em;
+        border-top-right-radius: 1em;
+        overflow: hidden;
+    }
+
+    .footertodo {
+        margin: 0;
+        padding: .9em 0;
+        border-bottom-left-radius: 1em;
+        border-bottom-right-radius: 1em;
+        height:30px;
+        background-color: #fff;
+    }
+
+    .todo {
+        position: relative;
+        display: block;
+        padding: .75em 1em;
+        cursor: pointer;
+        width: 530px;
+        height: 500px;
+        background-color: #fff;
+        overflow: auto;
+    }
+
+    .actionlinkk {
+        margin-left: 240px;
+    }
+
+    .CompletedToDo {
+        text-decoration: line-through;
+        transition: .5s ease-in-out;
+    }
+
+    #editb {
+        display: inline-block;
+        padding: 0.3em 1.2em;
+        margin: 0 0.1em 0.1em 0;
+        border: 0.16em solid rgba(255,255,255,0);
+        border-radius: 2em;
+        box-sizing: border-box;
+        text-decoration: none;
+        font-family: 'Roboto',sans-serif;
+        font-weight: 300;
+        color: #FFFFFF;
+        text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+        text-align: center;
+        transition: all 0.2s;
+    }
+
+        #editb:hover {
+            border-color: rgba(255,255,255,1);
+        }
+
+    @@media all and (max-width:30em) {
+          #editb {
+            display: block;
+            margin: 0.2em auto;
+
+        }
+    }
+
+    #deleteb {
+        display: inline-block;
+        padding: 0.3em 1.2em;
+        margin: 0 0.1em 0.1em 0;
+        border: 0.16em solid rgba(255,255,255,0);
+        border-radius: 2em;
+        box-sizing: border-box;
+        text-decoration: none;
+        font-family: 'Roboto',sans-serif;
+        font-weight: 300;
+        color: #FFFFFF;
+        text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+        text-align: center;
+        transition: all 0.2s;
+    }
+
+        #deleteb:hover {
+            border-color: rgba(255,255,255,1);
+        }
+
+    @@media all and (max-width:30em) {
+          #deleteb {
+            display: block;
+            margin: 0.2em auto;
+
+        }
+    }
+
+    /*.todo  .CompletedToDo:hover{
+            transform: translateX(-1em);
+        }*/
+
+</style>
+<div class="tabelaa" style="margin-left:250px;   overflow: hidden; ">
+    <section class="todo-list">
+        <h2>My Tasks List</h2>
+    </section>
+
+
+    <div class="todo">
+        <table class="table">
+
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.CheckBoxFor(modelItem => item.IsDone, new { id = item.Id, @class = "ActiveCheck" })
+                    </td>
+                    <td>
+                        @if (!item.IsDone)
+                        {
+                            @Html.DisplayFor(modelItem => item.Description)
+
+                        }
+                        else
+                        {
+                            <div class="CompletedToDo"> @Html.DisplayFor(modelItem => item.Description)</div>
+                        }
+
+                    </td>
+
+
+
+                    <td>
+                        <div class="actionlinkk">
+                           
+
+
+
+                            <button id="deleteb">@Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Are sure wants to delete?');" })</button>
+                        </div>
+
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+
+    <section class="footertodo">
+        <footer>
+        </footer>
+    </section>
+</div>
+
+<script src="~/CustomScripts/popup.js"></script>
+<script src="~/CustomScripts/AddCheckBoxListener.js"></script>

@@ -1,0 +1,294 @@
+﻿@model Focus5.Models.Exam
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+
+<style>
+    body {
+        font-family: "Robot", sans-serif;
+    }
+
+
+    .table {
+        color: cornflowerblue;
+        width: 735px;
+        height: 550px;
+        font-family: "Robot", sans-serif;
+    }
+
+    .todo {
+        position: relative;
+        display: block;
+        padding: .75em 1em;
+        cursor: pointer;
+        background-color: #fff;
+ 
+    }
+
+    .grupa {
+        max-width: 650px;
+        margin: 3rem auto;
+        border: 2px solid #7d6094;
+        padding: 2rem;
+        width: 200%;
+    }
+
+    .form-control2 {
+        height: 75px;
+        width: 640px;
+        margin-top: 10px;
+        margin-bottom: 18px;
+    }
+
+    .form-control {
+        height: 25px;
+        width: 440px;
+        margin-top: 10px;
+        margin-bottom: 18px;
+    }
+
+    .form-control1 {
+        height: 25px;
+        width: 640px;
+        margin-top: 10px;
+        margin-bottom: 18px;
+    }
+
+    .datepicker {
+        height: 25px;
+        width: 200px;
+        margin-top: 10px;
+        margin-bottom: 18px;
+    }
+
+    .btnsave {
+        text-transform: uppercase;
+        margin-top: 30px;
+        display: inline-block;
+        width: 95px;
+        height: 40px;
+        padding: 10px;
+        text-decoration: none;
+        background: cornflowerblue;
+        border-radius: 2px;
+        font-size: 18px;
+        border-radius: 6em;
+        text-align: center;
+        font-weight: 500;
+        color: #fff;
+        transition-property: background;
+    }
+
+        .btnsave:hover {
+            background: cornflowerblue;
+        }
+
+
+
+    .form-control3 {
+        height: 30px;
+        width: 203px;
+        margin-top: 10px;
+        margin-bottom: 18px;
+    }
+
+    .btnexit {
+        text-transform: uppercase;
+        margin-top: 186px;
+        display: inline-block;
+        width: 55px;
+        height: 19px;
+        padding: 10px;
+        text-decoration: none;
+        background: cornflowerblue;
+        border-radius: 2px;
+        font-size: 18px;
+        border-radius: 6em;
+        text-align: center;
+        font-weight: 500;
+        color: #fff;
+        transition-property: background;
+    }
+
+    .btnexitt {
+        text-transform: uppercase;
+        margin-top: 186px;
+        display: inline-block;
+        width: 69px;
+        height: 19px;
+        padding: 10px;
+        text-decoration: none;
+        background: cornflowerblue;
+        border-radius: 2px;
+        font-size: 18px;
+        border-radius: 6em;
+        text-align: center;
+        font-weight: 500;
+        color: #fff;
+        transition-property: background;
+    }
+
+    label {
+        color: cornflowerblue;
+        font-weight: bold;
+        font-size: 20px;
+        width: 150px;
+    }
+
+    .btnexit:hover {
+        background: #834cad;
+    }
+
+
+    .footertodo {
+        margin: 0;
+        padding: .7em 0;
+        border-bottom-left-radius: 1em;
+        border-bottom-right-radius: 1em;
+        background-color: #fff;
+    }
+
+    .todo-list {
+        color: #fff;
+        margin: 0;
+        padding: 1em 0;
+        color: cornflowerblue;
+        text-align: center;
+        background-color: #fff;
+        border-top: 1em solid cornflowerblue;
+        border-top-left-radius: 1em;
+        border-top-right-radius: 1em;
+    }
+
+    .form-control5 {
+        height: 25px;
+        width: 309px;
+        margin-top: 10px;
+    }
+
+    .titlestyle {
+        color: #6a13ec;
+        font-weight: bold;
+        font-size: 20px;
+        width: 150px;
+    }
+
+
+    span h4 {
+        display: inline-block;
+    }
+
+    .teksttt {
+        text-align: center;
+    }
+
+    .1 {
+        display: inline-block;
+        font-size: 18px
+    }
+
+    .progress {
+        background-color: #d8d8d8;
+        border-radius: 20px;
+        margin-left: 218px;
+        height: 30px;
+        width: 300px;
+    }
+
+    .progress-done {
+        background: linear-gradient(to left, #F2709C, #FF9472);
+        box-shadow: 0 3px 3px -5px #F2709C, 0 2px 5px #F2709C;
+        border-radius: 20px;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 80%;
+
+        transition: 1s ease 0.3s;
+    }
+</style>
+
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+
+<script>
+    const progress = document.querySelector('.progress-done');
+
+    progress.style.width = progress.getAttribute('data-done') + '%';
+    progress.style.opacity = 1;
+</script>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    <section class="todo-list">
+        <h1 style="font-size:26px">  @Html.DisplayFor(model => model.Subject)</h1>
+    </section>
+    <div class="todo">
+        <div class="table">
+
+
+
+            <div class="22">
+                <div class="progress">
+                    <div class="progress-done" data-done="70">
+                        @Html.DisplayFor(model => model.Type)
+                    </div>
+                </div>
+
+            </div>
+            &nbsp
+            <div class="teksttt">
+                <span class="grupatekst">
+                    <i class="fas fa-calendar-alt"></i><h4 style="font-size:18px">  @Html.DisplayFor(model => model.DueDate) </h4>
+
+                </span>
+
+
+            </div>
+
+           
+          
+                @*<div class="grupatekst">
+                    <h4 style="font-size:18px; margin-left:305px;">  @Html.DisplayFor(model => model.Level) </h4>
+                </div>*@
+         
+           
+            <span class="grupatekst">
+                <h4 style="font-size:18px; margin-left:305px;">For   @Html.DisplayFor(model => model.School)</h4>
+
+            </span>
+            <span class="todo-list">
+                <hr />
+                <h3 style="font-size:24px"> @Html.DisplayFor(model => model.Title) </h3>
+
+            </span>
+
+            <div class="grupatekst">
+                <label>Description:</label>
+                <div class="grupa-tekst1">
+
+                    @Html.DisplayFor(model => model.Description)
+                </div>
+            </div>
+
+
+
+            @*<a href="https://localhost:44342/Projects/Edit/" class="btnexit">Edit</a>*@
+            @*<a href="#" class="btnexitt">Delete</a>*@
+
+            <input type="submit" value="Delete" class="btnsave" style="background-color:cornflowerblue" />
+            <a href="https://localhost:44342/Exams" class="btnexit">exit</a>
+        </div>
+    </div>
+    <section class="footertodo">
+        <footer>
+        </footer>
+    </section>
+}

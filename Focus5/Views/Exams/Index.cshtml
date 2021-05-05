@@ -1,0 +1,167 @@
+﻿@model IEnumerable<Focus5.Models.Exam>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    
+
+    .table {
+        color: cornflowerblue;
+        width: 1420px;
+        height: 830px;
+        font-family: "Robot", sans-serif;
+        /*margin-left: 500px;*/
+    }
+   
+    span.proekti {
+        display: inline-block;
+        width: 270px;
+        height: 180px;
+        padding: 40px;
+      
+        background: #fff;
+        opacity: 0.6;
+    }
+    span.btn {
+        width: 270px;
+        height: 180px;
+        background: #fff;
+        opacity: 0.6;
+       
+    }
+    span.elementii {
+            display: block;
+            color: dodgerblue;
+            text-align: center;
+        }
+    .create {
+        padding: 20px;
+        text-decoration: none;
+        margin-top: 40px;
+    
+      
+      
+        font-size: 25px;
+        text-align: center;
+        font-weight: 700;
+        transition-property: background;
+    }
+    span.subject {
+        text-align: center;
+        display: block;
+        font-size: 25px;
+    }
+
+
+    span.type {
+        display: block;
+        color: dodgerblue;
+        text-align: center;
+    }
+    span.duedate {
+        display: block;
+        color: dodgerblue;
+        text-align: center;
+    }
+    span.school {
+        display: block;
+        color: dodgerblue;
+        text-align: center;
+    }
+</style>
+
+
+                       
+
+
+
+
+
+
+<div class="todo">
+    <div class="table">
+
+        <span class="proekti">
+
+
+            <span class="elementii">
+
+
+                <a href="https://localhost:44342/Exams/Create" class="create">Create</a>
+              
+
+
+            </span>
+
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+
+            <br />
+
+            <br />
+
+            <br />   <br />   <br />   <br />
+
+
+            <br />
+        </span>
+     
+
+
+        @foreach (var item in Model)
+        {
+
+    <span class="proekti">
+
+
+        <span class="subject">
+            @Html.DisplayFor(modelItem => item.Subject)
+        </span>
+        <br />
+        <span class="type">
+            @Html.DisplayFor(modelItem => item.Type)
+
+        </span>
+        <br />
+        <span class="duedate">
+            @Html.DisplayFor(modelItem => item.DueDate)
+
+        </span>
+        <br />
+        <span class="school">
+            @Html.DisplayFor(modelItem => item.School)
+
+        </span>
+        <br />
+
+        <br />
+
+        <span class="elementii">
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            
+
+                @Html.ActionLink("Details", "Delete", new { id = item.Id })
+
+                <br />
+            </td>
+        </span>
+
+        <br />   
+        <br />
+        <br />
+    </span>
+
+        }
+        <br />   <br />
+      
+
+    </div>
+
+</div>
+

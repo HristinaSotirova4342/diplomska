@@ -1,0 +1,167 @@
+﻿@model IEnumerable<Focus5.Models.Project>
+@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "Index";
+}
+
+@*<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>*@
+
+
+<style>
+    .square {
+        height: 250px;
+        width: 250px;
+        color: #35115c;
+        position: relative;
+        display: block;
+        border-top-left-radius: 1em;
+        border-top-right-radius: 1em;
+        background-color: #fff;
+        margin-bottom: 400px;
+        margin-right: 800px;
+        font-family: "Robot", sans-serif;
+    }
+
+    .create {
+        padding: 18px;
+        background: #633b82;
+        margin-bottom: 600px;
+        margin-right: 95px;
+        text-decoration: none;
+        float: right;
+        border-radius: 2px;
+        font-size: 20px;
+        border-radius: 6em;
+        text-align: center;
+        font-weight: 600;
+        color: #fff;
+        transition-property: background;
+    }
+
+        .create:hover {
+            background: #834cad;
+        }
+
+    .elements {
+        margin-bottom: 67px;
+    }
+
+    span.title {
+        text-align: center;
+        display: block;
+        font-size: 34px;
+    }
+
+    span.titleproject {
+        font-size: 20px;
+        display: block;
+        text-align: center;
+    }
+
+    span.state {
+        display: block;
+        color: dodgerblue;
+        text-align: center;
+    }
+
+    .footertodo {
+        margin: 0;
+        padding: .7em 0;
+        border-bottom-left-radius: 1em;
+        border-bottom-right-radius: 1em;
+        background-color: #fff;
+    }
+
+    .todo-list {
+        color: #000000;
+        margin: 0;
+        padding: 1em 0;
+        color: #35115c;
+        text-align: center;
+        background-color: #fff;
+        border-top: 1em solid #35115c;
+        border-top-left-radius: 1em;
+        border-top-right-radius: 1em;
+    }
+
+    .table {
+        color: #35115c;
+        width: 1100px;
+        height: 700px;
+        font-family: "Robot", sans-serif;
+    }
+    /*.todo {
+
+        position: relative;
+        display: inline;
+        padding: .75em 1em;
+        cursor: pointer;
+        color: #000000;
+    }*/
+    span.proekti {
+        display: inline-block;
+        width: 240px;
+        height: 240px;
+        padding: 9px;
+        border-top-left-radius: 1em;
+        border-top-right-radius: 1em;
+        border-bottom-left-radius: 1em;
+        border-bottom-right-radius: 1em;
+        background: #fff;
+    }
+
+    span.elementii {
+        display: block;
+        color: dodgerblue;
+        text-align: center;
+    }
+</style>
+
+
+
+
+
+
+
+
+<a href="https://localhost:44342/Projects/Create" class="create">+</a>
+
+<div class="todo">
+    <div class="table">
+
+
+        @foreach (var item in Model)
+        {
+
+            <span class="proekti">
+                <br />   <br />
+                <span class="title">
+                    @Html.DisplayFor(modelItem => item.Title)
+                </span>
+                <br />
+                <span class="state">
+                    @Html.DisplayFor(modelItem => item.State)
+
+                </span>
+                <br />   <br />   <br />   <br />   <br />
+              
+                <span class="elementii">
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                    
+                        @Html.ActionLink("Details", "Delete", new { id = item.Id })
+
+                    </td>
+                </span>
+
+            </span>
+
+        }
+
+      
+
+    </div>
+
+</div>
+
